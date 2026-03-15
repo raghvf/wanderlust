@@ -1,0 +1,130 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="max-w-4xl mx-auto px-6 py-12">
+
+<h2 class="title-xl mb-10">
+Create a New Listing
+</h2>
+
+<div class="card p-8">
+
+<form action="/listings" method="POST" class="space-y-8" enctype="multipart/form-data">
+
+<!-- TITLE -->
+<div>
+
+<label class="label mb-2 block">Title</label>
+
+<input
+type="text"
+name="listing[title]"
+required
+placeholder="Beautiful mountain cabin..."
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+
+<!-- DESCRIPTION -->
+<div>
+
+<label class="label mb-2 block">Description</label>
+
+<textarea
+name="listing[description]"
+rows="4"
+placeholder="Describe the experience..."
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400"></textarea>
+
+</div>
+
+
+
+<!-- IMAGE -->
+<!-- <div>
+
+<label class="label mb-2 block">Image URL</label>
+
+<input
+type="url"
+name="listing[image][url]"
+placeholder="https://example.com/image.jpg"
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div> -->
+
+<div>
+
+    <label class="label mb-2 block">Upload Image</label>
+    
+    <input
+    type="file"
+    name="listing[image]"  
+    class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400"
+    required>
+    
+    </div>
+
+<!-- PRICE -->
+<div>
+
+<label class="label mb-2 block">Price</label>
+
+<input
+type="number"
+name="listing[price]"
+min="1"
+required
+placeholder="6000"
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+
+<!-- LOCATION -->
+<div>
+
+<label class="label mb-2 block">Location</label>
+
+<input
+type="text"
+name="listing[location]"
+required
+placeholder="Manali"
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+
+<!-- COUNTRY -->
+<div>
+
+<label class="label mb-2 block">Country</label>
+
+<input
+type="text"
+name="listing[country]"
+required
+placeholder="India"
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+
+<!-- SUBMIT -->
+<button
+class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition font-semibold">
+
+Create Listing
+
+</button>
+
+</form>
+
+</div>
+
+</div>

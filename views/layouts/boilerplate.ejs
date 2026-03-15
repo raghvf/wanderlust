@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/gif" href="/images/destination.png">
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css' rel='stylesheet' />
+
+<title>Wanderlust</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/public/css/rating.css">
+
+
+<style>
+
+body{
+font-family:'Playfair Display', serif;
+background:#f9fafb;
+color:#1f2937;
+}
+
+.title-xl{
+font-size:2.8rem;
+font-weight:800;
+letter-spacing:-0.02em;
+}
+
+.heading-md{
+font-size:1.6rem;
+font-weight:600;
+letter-spacing:0.02em;
+}
+
+.label{
+font-size:0.8rem;
+letter-spacing:0.15em;
+text-transform:uppercase;
+color:#9ca3af;
+}
+
+.body-text{
+font-size:1.05rem;
+line-height:1.9;
+color:#4b5563;
+}
+
+.price{
+font-size:2rem;
+font-weight:800;
+letter-spacing:-0.02em;
+}
+
+.card{
+background:white;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full bg-white shadow z-50">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<div class="flex items-center gap-2">
+
+<img src="/images/logoWL.gif"
+class="h-10 w-10 object-contain">
+
+<span class="text-2xl font-semibold tracking-wide">
+Wanderlust
+</span>
+
+</div>
+
+<div class="flex gap-4">
+
+<a href="/listings"
+class="border px-4 py-1 rounded-full hover:shadow transition">
+Explore
+</a>
+
+<% if(!currUser){ %>
+
+<a href="/login"
+class="border px-4 py-1 rounded-full hover:shadow transition">
+Login
+</a>
+
+<a href="/signup"
+class="border px-4 py-1 rounded-full hover:shadow transition">
+Signup
+</a>
+
+<% } else { %>
+
+<span class="text-gray-600">
+<%= currUser.username %>
+</span>
+
+<a href="/logout"
+class="border px-4 py-1 rounded-full hover:shadow transition">
+Logout
+</a>
+
+<% } %>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- FLASH MESSAGES -->
+
+<div class="max-w-7xl mx-auto px-6 mt-24">
+
+<% if(success && success.length > 0){ %>
+
+<div class="mb-4 flex items-center justify-between bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow">
+
+<span class="font-medium"><%= success[0] %></span>
+
+<button onclick="this.parentElement.remove()"
+class="text-green-700 font-bold text-lg leading-none">
+&times;
+</button>
+
+</div>
+
+<% } %>
+
+
+<% if(error && error.length > 0){ %>
+
+<div class="mb-4 flex items-center justify-between bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow">
+
+<span class="font-medium"><%= error[0] %></span>
+
+<button onclick="this.parentElement.remove()"
+class="text-red-700 font-bold text-lg leading-none">
+&times;
+</button>
+
+</div>
+
+<% } %>
+
+</div>
+
+
+
+<!-- PAGE CONTENT -->
+
+<main class="max-w-7xl mx-auto px-6 py-10">
+
+<%- body %>
+
+</main>
+
+
+
+</body>
+</html>

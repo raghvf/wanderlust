@@ -1,0 +1,121 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="max-w-4xl mx-auto px-6 py-12">
+
+<h2 class="title-xl mb-10">
+Edit Listing
+</h2>
+
+<div class="card p-8">
+
+<form action="/listings/<%= listing._id %>?_method=PUT"
+method="POST"
+class="space-y-8"
+enctype="multipart/form-data">
+
+<!-- TITLE -->
+<div>
+
+<p class="label mb-2">Title</p>
+
+<input type="text"
+name="listing[title]"
+value="<%= listing.title %>"
+required
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+<!-- DESCRIPTION -->
+<div>
+
+<p class="label mb-2">Description</p>
+
+<textarea name="listing[description]"
+rows="4"
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400"><%= listing.description %></textarea>
+
+</div>
+
+
+<!-- IMAGE -->
+ <div class="mb-3">
+    <img src="<%=originalImage%>" alt="">
+ </div>
+<div>
+
+    <p class="label mb-2">Upload Image</p>
+    
+    <input
+    type="file"
+    name="image"
+    accept="image/*"
+    class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+    
+</div>
+
+
+<!-- PRICE -->
+<div>
+
+<p class="label mb-2">Price</p>
+
+<input type="number"
+name="listing[price]"
+value="<%= listing.price %>"
+min="1"
+required
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+<!-- LOCATION -->
+<div>
+
+<p class="label mb-2">Location</p>
+
+<input type="text"
+name="listing[location]"
+value="<%= listing.location %>"
+required
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+<!-- COUNTRY -->
+<div>
+
+<p class="label mb-2">Country</p>
+
+<input type="text"
+name="listing[country]"
+value="<%= listing.country %>"
+required
+class="border border-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-red-400">
+
+</div>
+
+
+<!-- BUTTONS -->
+<div class="flex gap-4 pt-4">
+
+<button
+class="flex-1 bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition font-semibold">
+Save Changes
+</button>
+
+<a href="/listings/<%= listing._id %>"
+class="flex-1 text-center border py-3 rounded-lg hover:bg-gray-100 transition">
+Cancel
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
