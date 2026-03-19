@@ -21,6 +21,11 @@ const reviewsRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
 const app = express();
+const isProduction = process.env.NODE_ENV === "production";
+
+if (!process.env.SESSION_SECRET) {
+    throw new Error("SESSION_SECRET is required");
+}
 
 
 // ================= CONFIG =================
@@ -66,18 +71,21 @@ store.on("error", (err) => {
 
 // ================= SESSION CONFIG =================
 app.set("trust proxy", 1);
+
 const sessionOptions = {
     store,
+    name: "wanderlust.sid",
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    proxy: true,
     cookie: {
-        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: true,
-        sameSite: "none"
-    }
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
+    },
 };
 
 app.use(session(sessionOptions));
@@ -135,6 +143,7 @@ app.use((err, req, res, next) => {
 
 // ================= SERVER =================
 
-app.listen(3000, () => {
-    console.log("http://localhost:3000/");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
