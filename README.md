@@ -4,7 +4,7 @@ WanderLust is a full-stack web app for discovering, creating, and reviewing trav
 
 ## Preview
 
-![WanderLust Preview](https://via.placeholder.com/1200x700.png?text=WanderLust+Preview)
+![WanderLust Preview](/public/images/Solidx.png)
 
 ## Project Link
 
