@@ -2,6 +2,13 @@
 
 WanderLust is a full-stack web app for discovering, creating, and reviewing travel stay listings. It is built with Node.js, Express, MongoDB, and EJS, with authentication, image uploads, and map-based location support.
 
+## Preview
+
+![WanderLust Preview](https://via.placeholder.com/1200x700.png?text=WanderLust+Preview)
+
+## Project Link
+
+- Live Demo: [Wanderlust](https://wanderlust-bc5x.onrender.com/)
 ## Features
 
 - Create, edit, and delete property listings
