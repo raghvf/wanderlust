@@ -19,32 +19,6 @@ WanderLust is a full-stack web app for discovering, creating, and reviewing trav
 - Cloudinary + Multer
 - Mapbox SDK
 
-## Getting Started
-
-1. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-2. Create a `.env` file in the project root and add:
-
-   ```env
-   ATLASDB_LINK=your_mongodb_connection_string
-   SESSION_SECRET=your_session_secret
-   MAPBOX_API_KEY=your_mapbox_api_key
-   CLOUD_NAME=your_cloudinary_cloud_name
-   CLOUD_API_KEY=your_cloudinary_api_key
-   CLOUD_API_SECRET=your_cloudinary_api_secret
-   NODE_ENV=development
-   PORT=3000
-   ```
-
-3. Start the app:
-
-   ```bash
-   node app.js
-   ```
 
 4. Open `http://localhost:3000` in your browser.
 
