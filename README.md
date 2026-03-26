@@ -1,6 +1,8 @@
 # WanderLust
 
-WanderLust is a full-stack web app for discovering, creating, and reviewing travel stay listings. It is built with Node.js, Express, MongoDB, and EJS, with authentication, image uploads, and map-based location support.
+WanderLust is a full-stack travel listing platform that allows users to create, discover, and review properties with secure authentication, media management, and geolocation-based visualization.
+
+The application is designed with a focus on scalability, modular backend architecture, and real-world deployment practices.
 
 ## Preview
 
@@ -11,21 +13,35 @@ WanderLust is a full-stack web app for discovering, creating, and reviewing trav
 - Live Demo: [Wanderlust](https://wanderlust-bc5x.onrender.com/)
 ## Features
 
-- Create, edit, and delete property listings
-- Add and remove reviews on listings
-- User signup/login/logout with session-based authentication
-- Image upload support via Cloudinary
-- Listing location display using Mapbox
+- Implemented secure session-based authentication using Passport.js with hashed credentials and protected routes
+- Designed RESTful APIs for listings and reviews with proper MVC architecture
+- Integrated Cloudinary for optimized image storage and delivery
+- Used Mapbox to render dynamic location-based listings
+- Built a review system with relational data modeling using MongoDB references
+- Implemented server-side validation and error handling middleware
 
 ## Tech Stack
 
-- Node.js + Express
-- MongoDB + Mongoose
-- EJS + EJS-Mate
-- Passport.js (local strategy)
-- Cloudinary + Multer
-- Mapbox SDK
+- Backend: Node.js, Express
+- Database: MongoDB (Mongoose ODM)
+- Authentication: Passport.js (Local Strategy)
+- Frontend: EJS, EJS-Mate
+- Media: Cloudinary
+- Maps: Mapbox SDK
 
+## Architecture
 
-4. Open `http://localhost:3000` in your browser.
+The application follows MVC architecture:
+
+- Models: MongoDB schemas for Users, Listings, Reviews
+- Controllers: Business logic separation for routes
+- Routes: RESTful routing structure
+- Middleware: Authentication, validation, and error handling
+
+## Challenges & Learnings 
+
+- Handling image uploads and storage efficiently
+- Managing user sessions securely
+- Designing relational data in a NoSQL database
+- Integrating third-party APIs (Mapbox, Cloudinary)
 
